@@ -1,0 +1,82 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2025-03-28T13:10:27.718Z",
+        "before": [
+          {
+            "result": {
+              "duration": 7262288800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Utility.Hooks.Setup()"
+            }
+          }
+        ],
+        "line": 4,
+        "name": "As user, I should be able to register",
+        "description": "",
+        "id": "register;as-user--i-should-be-able-to-register",
+        "after": [
+          {
+            "result": {
+              "duration": 203457000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Utility.Hooks.TearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 997600,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "User navigate to Cermati Register page",
+            "match": {
+              "location": "StepsDefinition.RegisterSteps.userNavigateToCermatiRegisterPage()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "error_message": "java.lang.NullPointerException\r\n\tat Pages.BasePage.TypeAtWebElement(BasePage.java:20)\r\n\tat Pages.RegisterPage.inputPhoneNumber(RegisterPage.java:18)\r\n\tat StepsDefinition.RegisterSteps.userInputAtPhoneNumberFieldAtRegisterPage(RegisterSteps.java:19)\r\n\tat ✽.User input \"0812345678\" at phone number field at Register page(file:///E:/Automation/SeleniumCucumberCermati/src/test/java/Features/RegisterAccount.feature:6)\r\n",
+              "duration": 1993900,
+              "status": "failed"
+            },
+            "line": 6,
+            "name": "User input \"0812345678\" at phone number field at Register page",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"0812345678\"",
+                  "offset": 11
+                }
+              ],
+              "location": "StepsDefinition.RegisterSteps.userInputAtPhoneNumberFieldAtRegisterPage(java.lang.String)"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Register"
+          }
+        ]
+      }
+    ],
+    "name": "Register",
+    "description": "",
+    "id": "register",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/Features/RegisterAccount.feature",
+    "tags": []
+  }
+]

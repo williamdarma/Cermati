@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+Test set: Runner.TestRunner
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 8.816 s <<< FAILURE! -- in Runner.TestRunner
+Register.As user, I should be able to register -- Time elapsed: 7.807 s <<< ERROR!
+java.lang.NullPointerException
+	at Pages.BasePage.TypeAtWebElement(BasePage.java:20)
+	at Pages.RegisterPage.inputPhoneNumber(RegisterPage.java:18)
+	at StepsDefinition.RegisterSteps.userInputAtPhoneNumberFieldAtRegisterPage(RegisterSteps.java:19)
+	at ✽.User input "0812345678" at phone number field at Register page(file:///E:/Automation/SeleniumCucumberCermati/src/test/java/Features/RegisterAccount.feature:6)
+
