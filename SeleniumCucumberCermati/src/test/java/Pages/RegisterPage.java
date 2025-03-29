@@ -1,49 +1,58 @@
 package Pages;
 
+import Utility.RegisterConstant;
 import lombok.extern.slf4j.Slf4j;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
+import static Utility.BrowserDriver.*;
+
 
 @Slf4j
 public class RegisterPage extends BasePage {
 
-    @FindBy(id = "mobilePhone")
-    WebElement phoneNumberInputField;
-
-    @FindBy(id = "email")
-    WebElement emailInputField;
-    @FindBy(id = "firstname")
-    WebElement firstNameInputField;
-    @FindBy(id = "lastname")
-    WebElement lastNameInputField;
-    @FindBy(xpath = "//*[@id=\"__next\"]/main/div/div[2]/div/button")
-    WebElement registerButton;
-
-    @FindBy(className = "OtpHeader_form-header__DSIwC")
-    WebElement oTPHeader;
 
     public void inputPhoneNumber(String phoneNumber) {
-        TypeAtWebElement(phoneNumberInputField, phoneNumber);
+        WebElement temp = getDriver().findElement(By.id(RegisterConstant.phoneNumberInputField_ID));
+        TypeAtWebElement(temp, phoneNumber);
     }
 
     public void inputEmail(String email) {
-        TypeAtWebElement(phoneNumberInputField, email);
+        WebElement temp = getDriver().findElement(By.id(RegisterConstant.emailInputField_ID));
+        TypeAtWebElement(temp, email);
     }
 
     public void inputFirstName(String firstName) {
-        TypeAtWebElement(firstNameInputField, firstName);
+        WebElement temp = getDriver().findElement(By.id(RegisterConstant.firstNameInputField_ID));
+        TypeAtWebElement(temp, firstName);
     }
 
     public void inputLastName(String lastName) {
-        TypeAtWebElement(lastNameInputField, lastName);
+        WebElement temp = getDriver().findElement(By.id(RegisterConstant.lastNameInputField_ID));
+
+        TypeAtWebElement(temp, lastName);
     }
 
     public void clickRegister() {
-        ClickAtWebElement(registerButton);
+        WebElement temp = getDriver().findElement(By.xpath(RegisterConstant.registerButton_XPATH));
+        ClickAtWebElement(temp);
     }
 
-    public boolean isRedirectOTP()
-    {
-        return oTPHeader.isDisplayed();
+    public boolean isRedirectOTP() {
+      //  WebElement temp = getDriver().findElement(By.className(RegisterConstant.oTPHeader_CLASS));
+       // return temp.isDisplayed();
+
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+        try {
+            WebElement temp = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className(RegisterConstant.oTPHeader_CLASS)));
+            return temp.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
     }
 }
